@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import "./App.css";
 import TaskItem from "./components/TaskItem";
@@ -17,6 +18,19 @@ import TaskItem from "./components/TaskItem";
 //       isCompleted: true,
 //     },
 //   ]);
+
+//   const fetchTasks = async () => {
+//     try {
+//       const response = await axios.get("http://localhost:8000/tasks");
+//       console.log(response);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchTasks();
+//   }, []);
 
 //   return (
 //     <>
@@ -49,6 +63,11 @@ class App extends React.Component {
         },
       ],
     };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState);
+    console.log("componente was updated");
   }
 
   handleStateChange() {
