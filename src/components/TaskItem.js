@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const TaskItem = ({ task }) => {
-  useEffect(() => {
-    console.log("component was mounted!");
+  // useEffect(() => {
+  //   console.log("component was mounted!");
 
-    return () => {
-      console.log("i will unmount");
-    };
-  }, []);
+  //   return () => {
+  //     console.log("i will unmount");
+  //   };
+  // }, []);
   return (
     <>
       <h1>{task.description}</h1>

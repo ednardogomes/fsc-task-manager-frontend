@@ -5,15 +5,15 @@ import "./App.css";
 import TaskItem from "./components/TaskItem";
 
 const App = () => {
-  const mounted = useRef(false);
+  // const mounted = useRef(false);
 
-  useEffect(() => {
-    if (mounted.current === false) {
-      mounted.current = true;
-    } else {
-      console.log("component was updated");
-    }
-  });
+  // useEffect(() => {
+  //   if (mounted.current === false) {
+  //     mounted.current = true;
+  //   } else {
+  //     console.log("component was updated");
+  //   }
+  // });
 
   const [tasks, setTasks] = useState([
     {
@@ -31,8 +31,8 @@ const App = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/tasks");
-      console.log(response);
+      const { data } = await axios.get("http://localhost:8000/tasks");
+      setTasks(data);
     } catch (error) {
       console.log(error);
     }
@@ -42,9 +42,9 @@ const App = () => {
     setTasks([]);
   };
 
-  // useEffect(() => {
-  //   fetchTasks();
-  // }, []);
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   return (
     <>
