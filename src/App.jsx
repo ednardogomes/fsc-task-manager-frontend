@@ -1,8 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import axios from "axios";
-
-import "./App.css";
-import TaskItem from "./components/TaskItem";
+import Tasks from "./components/Tasks";
 
 const App = () => {
   // const mounted = useRef(false);
@@ -15,43 +11,9 @@ const App = () => {
   //   }
   // });
 
-  const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      description: "Estudar Programação",
-      isCompleted: false,
-    },
-
-    {
-      id: "2",
-      description: "Ler",
-      isCompleted: true,
-    },
-  ]);
-
-  const fetchTasks = async () => {
-    try {
-      const { data } = await axios.get("http://localhost:8000/tasks");
-      setTasks(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleCleanTasks = () => {
-    setTasks([]);
-  };
-
-  useEffect(() => {
-    fetchTasks();
-  }, []);
-
   return (
     <>
-      {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
-      ))}
-      <button onClick={handleCleanTasks}>Limpar tarefas</button>
+      <Tasks />
     </>
   );
 };
