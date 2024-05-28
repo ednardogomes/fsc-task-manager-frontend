@@ -15,6 +15,20 @@ const TaskItem = ({ task, fetchTasks }) => {
       alert.error("Algo deu errado.");
     }
   };
+
+  const handleTaskCompletionChange = async (e) => {
+    try {
+      await axios.patch(`http://localhost:8000/tasks/${task._id}`, {
+        isCompleted: e.target.checked,
+      });
+
+      await fetchTasks();
+
+      alert.success("A tarefa foi movida com sucesso");
+    } catch (error) {
+      alert.error("Algo de errado.");
+    }
+  };
   // useEffect(() => {
   //   console.log("component was mounted!");
 
@@ -34,7 +48,11 @@ const TaskItem = ({ task, fetchTasks }) => {
             }
           >
             {task.description}
-            <input type="checkbox" defaultChecked={task.isCompleted} />
+            <input
+              type="checkbox"
+              defaultChecked={task.isCompleted}
+              onChange={(e) => handleTaskCompletionChange(e)}
+            />
             <span
               className={task.isCompleted ? "checkmark completed" : "checkmark"}
             ></span>
