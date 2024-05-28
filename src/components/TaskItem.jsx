@@ -1,8 +1,20 @@
 // import { useEffect } from "react";
+import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
+import { useAlert } from "react-alert";
 
+import "./TaskItem.scss";
 
-
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, fetchTasks }) => {
+  const alert = useAlert();
+  const handleTaskDeletion = async () => {
+    try {
+      await axios.delete(`http://localhost:8000/tasks/${task._id}`);
+      await fetchTasks();
+    } catch (error) {
+      alert.error("Algo deu errado.");
+    }
+  };
   // useEffect(() => {
   //   console.log("component was mounted!");
 
@@ -27,6 +39,14 @@ const TaskItem = ({ task }) => {
               className={task.isCompleted ? "checkmark completed" : "checkmark"}
             ></span>
           </label>
+        </div>
+
+        <div className="delete">
+          <AiFillDelete
+            size={18}
+            color="#F97474"
+            onClick={handleTaskDeletion}
+          />
         </div>
       </div>
     </>

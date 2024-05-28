@@ -28,12 +28,12 @@ const Tasks = () => {
 
       <div className="last-tasks">
         <h3>Ultimas Tarefas</h3>
-        <AddTask />
+        <AddTask fetchTasks={fetchTasks} />
         <div className="tasks-list">
           {tasks
             .filter((task) => task.isCompleted === false)
             .map((lastTask) => (
-              <TaskItem task={lastTask} key={lastTask._id} />
+              <TaskItem task={lastTask} fetchTasks={fetchTasks} key={lastTask._id} />
             ))}
         </div>
       </div>
