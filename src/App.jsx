@@ -1,4 +1,7 @@
 import Tasks from "./components/Tasks";
+import Sidebar from "./components/Sidebar";
+
+import "./App.scss";
 
 const App = () => {
   // const mounted = useRef(false);
@@ -12,9 +15,10 @@ const App = () => {
   // });
 
   return (
-    <>
+    <div className="app-container">
+      <Sidebar />
       <Tasks />
-    </>
+    </div>
   );
 };
 
