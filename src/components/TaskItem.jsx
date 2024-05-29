@@ -11,7 +11,7 @@ const TaskItem = ({ task, fetchTasks }) => {
     try {
       await axios.delete(`http://localhost:8000/tasks/${task._id}`);
       await fetchTasks();
-    } catch (error) {
+    } catch (_e) {
       alert.error("Algo deu errado.");
     }
   };
@@ -25,7 +25,7 @@ const TaskItem = ({ task, fetchTasks }) => {
       await fetchTasks();
 
       alert.success("A tarefa foi movida com sucesso");
-    } catch (error) {
+    } catch (_e) {
       alert.error("Algo de errado.");
     }
   };
