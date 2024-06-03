@@ -1,5 +1,7 @@
 import CustomButton from "../../components/CustomButton";
+
 import logo from "../images/SidebarLogo.png";
+import "./Login.scss";
 
 const login = () => {
   return (
