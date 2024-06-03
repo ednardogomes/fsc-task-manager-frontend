@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./assets/Pages/Home";
+import Login from "./assets/Pages/Login";
 
-import Tasks from "./components/Tasks";
-import Sidebar from "./components/Sidebar";
 
 import "./App.scss";
 
@@ -21,6 +20,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };
