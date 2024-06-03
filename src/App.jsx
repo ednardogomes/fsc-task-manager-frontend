@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./assets/Pages/Home";
 import Login from "./assets/Pages/Login";
 
-
 import "./App.scss";
 
 const App = () => {

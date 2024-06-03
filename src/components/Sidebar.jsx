@@ -1,9 +1,11 @@
+
 import CustomButton from "./CustomButton";
 
 import "./Sidebar.scss";
 import logo from "../assets/images/SidebarLogo.png";
 
 const Sidebar = () => {
+
   return (
     <div className="sidebar-container">
       <div className="logo">
